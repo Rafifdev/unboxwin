@@ -15,9 +15,14 @@
 
 <p><h2><?= ucwords($title); ?></h2></p>
 
-				<?php foreach ($fields as $field){ ?>
+				<?php foreach ($fields as $field){ 
+					$val = $data->{$field};
+					if (in_array($field, ['harga_barang', 'sub_total', 'ongkir', 'total_bayar', 'nilai_hadiah', 'min_omzet_tercapai'])) {
+						$val = idr($val);
+					}
+				?>
 					<h3><?= cclang($field); ?></h3>
-					<p><?= $data->{$field}; ?></p>
+					<p><?= $val; ?></p>
 					<hr>
 					
 				<?php } ?>

@@ -70,6 +70,15 @@ $route['blog/(:any)'] = 'blog/detail/$1';
 $route['administrator/web-page'] = 'page/backend/page/admin';
 
 
+$route['spin'] = 'spin/spin/index';
+$route['spin/index'] = 'spin/spin/index';
+$route['spin/index/(:any)'] = 'spin/spin/index/$1';
+$route['spin/wheel'] = 'spin/spin/wheel';
+$route['spin/submit_verification'] = 'spin/spin/submit_verification';
+$route['spin/play_spin'] = 'spin/spin/play_spin';
+$route['spin/claim_prize'] = 'spin/spin/claim_prize';
+$route['spin/(:any)'] = 'spin/spin/index/$1';
+
 $route[ADMIN_NAMESPACE_URL.'/manage-form/(:any)'] = 'form/backend/$1';
 $route[ADMIN_NAMESPACE_URL.'/manage-form/(:any)/(:any)'] = 'form/backend/$1/$2';
 $route[ADMIN_NAMESPACE_URL.'/manage-form/(:any)/(:any)/(:any)'] = 'form/backend/$1/$2/$3';

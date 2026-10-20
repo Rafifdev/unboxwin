@@ -25,8 +25,13 @@
 		<tbody>
 			<?php foreach($results as $row): ?>
 			<tr>
-				<?php foreach ($fields as $field){ ?>
-					<td><?= $row->{$field}; ?></td>
+				<?php foreach ($fields as $field){ 
+					$val = $row->{$field};
+					if (in_array($field, ['harga_barang', 'sub_total', 'ongkir', 'total_bayar', 'nilai_hadiah', 'min_omzet_tercapai'])) {
+						$val = idr($val);
+					}
+				?>
+					<td><?= $val; ?></td>
 				<?php } ?>
 			</tr>
 			<?php endforeach; ?>

@@ -285,5 +285,20 @@ jQuery.expr[':'].regex = function(elem, index, match) {
         });
       });
 
+      // Table action dropdown row elevation & z-index
+      $(document).on('show.bs.dropdown shown.bs.dropdown', '.action-dropdown', function () {
+         var $this = $(this);
+         $this.css({ 'position': 'relative', 'z-index': 10050 });
+         $this.closest('td').css({ 'position': 'relative', 'z-index': 10000 });
+         $this.closest('tr').addClass('dropdown-open').css({ 'position': 'relative', 'z-index': 9999 });
+         $this.closest('.table-responsive, .box-body').css('overflow', 'visible');
+      });
+
+      $(document).on('hide.bs.dropdown hidden.bs.dropdown', '.action-dropdown', function () {
+         var $this = $(this);
+         $this.css({ 'position': '', 'z-index': '' });
+         $this.closest('td').css({ 'position': '', 'z-index': '' });
+         $this.closest('tr').removeClass('dropdown-open').css({ 'position': '', 'z-index': '' });
+      });
 
   });;
