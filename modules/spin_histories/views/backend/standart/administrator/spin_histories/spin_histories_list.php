@@ -170,9 +170,9 @@ jQuery(document).ready(domo);
                            <td><?= _ent($spin_histories->no_whatsapp); ?></td> 
                            <td><?= !empty($spin_histories->nama_hadiah) ? _ent($spin_histories->nama_hadiah) : _ent($spin_histories->prize_id); ?></td> 
                            <td><?= _ent($spin_histories->waktu_spin); ?></td> 
-                           <td><?= _ent($spin_histories->status_klaim); ?></td> 
-                           <td><?= _ent($spin_histories->status_hadiah); ?></td> 
-                           <td><?= _ent($spin_histories->status_wa); ?></td> 
+                           <td><?= status_badge($spin_histories->status_klaim); ?></td> 
+                           <td><?= status_badge($spin_histories->status_hadiah); ?></td> 
+                           <td><?= status_badge($spin_histories->status_wa); ?></td> 
                            <td width="60" class="text-center">
                                <?= render_table_action([
                                   'detail_trx' => [

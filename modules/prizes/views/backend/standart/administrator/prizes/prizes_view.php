@@ -76,7 +76,7 @@ jQuery(document).ready(domo);
                         <label for="content" class="col-sm-2 control-label">Kategori Hadiah </label>
 
                         <div class="col-sm-8">
-                           <?= _ent($prizes->kategori_hadiah); ?>
+                           <?= status_badge($prizes->kategori_hadiah); ?>
                         </div>
                     </div>
                                          
@@ -140,7 +140,7 @@ jQuery(document).ready(domo);
                         <label for="content" class="col-sm-2 control-label">Is Active </label>
 
                         <div class="col-sm-8">
-                           <?= _ent($prizes->is_active); ?>
+                           <?= status_badge($prizes->is_active, 'is_active'); ?>
                         </div>
                     </div>
                                         

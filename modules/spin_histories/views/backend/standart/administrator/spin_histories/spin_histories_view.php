@@ -140,7 +140,7 @@ jQuery(document).ready(domo);
                         <label for="content" class="col-sm-2 control-label">Status Klaim </label>
 
                         <div class="col-sm-8">
-                           <?= _ent($spin_histories->status_klaim); ?>
+                           <?= status_badge($spin_histories->status_klaim); ?>
                         </div>
                     </div>
                                          
@@ -148,7 +148,7 @@ jQuery(document).ready(domo);
                         <label for="content" class="col-sm-2 control-label">Status Hadiah </label>
 
                         <div class="col-sm-8">
-                           <?= _ent($spin_histories->status_hadiah); ?>
+                           <?= status_badge($spin_histories->status_hadiah); ?>
                         </div>
                     </div>
                                          
@@ -172,7 +172,7 @@ jQuery(document).ready(domo);
                         <label for="content" class="col-sm-2 control-label">Status Wa </label>
 
                         <div class="col-sm-8">
-                           <?= _ent($spin_histories->status_wa); ?>
+                           <?= status_badge($spin_histories->status_wa); ?>
                         </div>
                     </div>
                                         

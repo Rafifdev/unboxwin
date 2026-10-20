@@ -97,17 +97,10 @@ jQuery(document).ready(domo);
                            <td><?= _ent($unique_qr_tokens->batch_id); ?></td> 
                            <td><?= _ent($unique_qr_tokens->no_produk); ?></td> 
                            <td><?= _ent($unique_qr_tokens->qr_token); ?></td> 
-                           <td><?= _ent($unique_qr_tokens->status_verifikasi); ?></td> 
+                           <td><?= status_badge($unique_qr_tokens->status_verifikasi); ?></td> 
                            <td><?= _ent($unique_qr_tokens->tanggal_verifikasi); ?></td> 
                            <td width="60" class="text-center">
                                <?= render_table_action([
-                                  'test_spin' => [
-                                     'label' => 'Tes Spin',
-                                     'icon' => 'fa fa-gamepad',
-                                     'icon_color' => '#0284c7',
-                                     'url' => site_url('spin/index/' . $unique_qr_tokens->qr_token),
-                                     'attrs' => ['target' => '_blank'],
-                                  ],
                                   'view' => [
                                      'label' => 'Lihat',
                                      'url' => site_url('administrator/unique_qr_tokens/view/' . $unique_qr_tokens->id),

@@ -1165,6 +1165,157 @@ if (!function_exists('idr')) {
 	}
 }
 
+if (!function_exists('status_badge')) {
+	/**
+	 * Render native CiCOOL / AdminLTE label badge for statuses
+	 *
+	 * @param mixed $status The status value (string, integer, boolean)
+	 * @param string|null $context Optional field context (e.g. 'is_active', 'is_used_spin')
+	 * @return string HTML span with native label class
+	 */
+	function status_badge($status, $context = null) {
+		if ($status === null || $status === '') {
+			return '-';
+		}
+
+		$text = (string)$status;
+		$clean = strtoupper(trim($text));
+		$color = 'default';
+		$display = $text;
+
+		// 1. Context-specific checks
+		if ($context === 'is_active') {
+			if ($status == 1 || $clean === '1' || $clean === 'AKTIF' || $clean === 'ACTIVE') {
+				return '<span class="label label-success">Aktif</span>';
+			} else {
+				return '<span class="label label-danger">Nonaktif</span>';
+			}
+		}
+
+		if ($context === 'is_used_spin') {
+			if ($status == 1 || $clean === '1' || stripos($clean, 'SUDAH') !== false) {
+				return '<span class="label label-danger">Sudah Digunakan</span>';
+			} else {
+				return '<span class="label label-success">Belum Digunakan</span>';
+			}
+		}
+
+		// 2. Direct string matching
+		switch ($clean) {
+			// Green / Success
+			case 'VERIFIED':
+			case 'TERVERIFIKASI':
+				$color = 'success';
+				$display = 'VERIFIED';
+				break;
+			case 'CLAIMED':
+			case 'DIKLAIM':
+				$color = 'success';
+				$display = 'Claimed';
+				break;
+			case 'SELESAI':
+			case 'COMPLETED':
+			case 'SUCCESS':
+				$color = 'success';
+				break;
+			case 'SUDAH BROADCAST':
+				$color = 'success';
+				$display = 'Sudah Broadcast';
+				break;
+			case 'AKTIF':
+			case 'ACTIVE':
+				$color = 'success';
+				$display = 'Aktif';
+				break;
+
+			// Red / Danger
+			case 'EXPIRED':
+			case 'KADALUARSA':
+				$color = 'danger';
+				$display = 'Expired';
+				break;
+			case 'CANCELLED':
+			case 'BATAL':
+			case 'FAILED':
+			case 'GAGAL':
+				$color = 'danger';
+				break;
+			case 'NONAKTIF':
+			case 'INACTIVE':
+				$color = 'danger';
+				$display = 'Nonaktif';
+				break;
+			case 'SUDAH DIGUNAKAN':
+				$color = 'danger';
+				$display = 'Sudah Digunakan';
+				break;
+
+			// Yellow / Warning
+			case 'UNVERIFIED':
+			case 'BELUM DIVERIFIKASI':
+				$color = 'warning';
+				$display = 'UNVERIFIED';
+				break;
+			case 'UNCLAIMED':
+			case 'BELUM DIKLAIM':
+				$color = 'warning';
+				$display = 'Unclaimed';
+				break;
+			case 'PENDING':
+			case 'MENUNGGU':
+				$color = 'warning';
+				$display = 'Pending';
+				break;
+
+			// Aqua / Info
+			case 'DIPROSES':
+			case 'PROSES':
+			case 'PROCESSING':
+				$color = 'info';
+				$display = 'Diproses';
+				break;
+			case 'REGULER':
+				$color = 'info';
+				$display = 'REGULER';
+				break;
+
+			// Blue / Primary
+			case 'DIKIRIM':
+			case 'SHIPPED':
+				$color = 'primary';
+				$display = 'Dikirim';
+				break;
+			case 'UTAMA':
+				$color = 'bg-purple';
+				$display = 'UTAMA';
+				break;
+
+			// Categories & Broadcast
+			case 'BELUM DIGUNAKAN':
+				$color = 'success';
+				$display = 'Belum Digunakan';
+				break;
+			case 'BELUM BROADCAST':
+				$color = 'warning';
+				$display = 'Belum Broadcast';
+				break;
+			case 'HIBURAN/VOUCHER':
+			case 'HIBURAN':
+			case 'VOUCHER':
+				$color = 'bg-teal';
+				break;
+
+			default:
+				$color = 'info';
+				break;
+		}
+
+		$class_name = (strpos($color, 'bg-') === 0) ? 'label ' . $color : 'label label-' . $color;
+		return '<span class="' . $class_name . '">' . htmlspecialchars($display, ENT_QUOTES, 'UTF-8') . '</span>';
+	}
+}
+
+
 if(!function_exists('get_theme_list')) {
 	function get_theme_list() {
 		$result = directory_map('cc-content/themes', 1);

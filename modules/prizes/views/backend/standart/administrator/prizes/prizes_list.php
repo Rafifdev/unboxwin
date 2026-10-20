@@ -96,11 +96,11 @@ jQuery(document).ready(domo);
                               <input type="checkbox" class="flat-red check" name="id[]" value="<?= $prizes->id; ?>">
                            </td>
                            <td><?= _ent($prizes->nama_hadiah); ?></td> 
-                           <td><?= _ent($prizes->kategori_hadiah); ?></td> 
+                           <td><?= status_badge($prizes->kategori_hadiah); ?></td> 
                            <td><?= idr($prizes->nilai_hadiah); ?></td> 
                            <td><?= _ent($prizes->stok_tersedia); ?></td> 
                            <td><?= _ent($prizes->bobot_probabilitas); ?></td> 
-                           <td><?= $prizes->is_active ? 'Aktif' : 'Nonaktif'; ?></td> 
+                           <td><?= status_badge($prizes->is_active, 'is_active'); ?></td> 
                            <td width="60" class="text-center">
                                <?= render_table_action([
                                   'view' => [

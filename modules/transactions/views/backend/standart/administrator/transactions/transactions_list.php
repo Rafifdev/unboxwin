@@ -99,8 +99,8 @@ jQuery(document).ready(domo);
                            <td><?= _ent($transactions->tanggal_transaksi); ?></td> 
                            <td><?= _ent($transactions->nama_cabang); ?></td> 
                            <td><?= idr($transactions->total_bayar); ?></td> 
-                           <td><?= _ent($transactions->status_transaksi); ?></td> 
-                           <td><?= $transactions->is_used_spin ? 'Sudah Digunakan' : 'Belum Digunakan'; ?></td> 
+                           <td><?= status_badge($transactions->status_transaksi); ?></td> 
+                           <td><?= status_badge($transactions->is_used_spin, 'is_used_spin'); ?></td> 
                            <td width="60" class="text-center">
                                <?= render_table_action([
                                   'view' => [

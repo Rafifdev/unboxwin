@@ -156,7 +156,7 @@ jQuery(document).ready(domo);
                         <label for="content" class="col-sm-2 control-label">Status Transaksi </label>
 
                         <div class="col-sm-8">
-                           <?= _ent($transactions->status_transaksi); ?>
+                           <?= status_badge($transactions->status_transaksi); ?>
                         </div>
                     </div>
                                          
@@ -164,7 +164,7 @@ jQuery(document).ready(domo);
                         <label for="content" class="col-sm-2 control-label">Is Used Spin </label>
 
                         <div class="col-sm-8">
-                           <?= _ent($transactions->is_used_spin); ?>
+                           <?= status_badge($transactions->is_used_spin, 'is_used_spin'); ?>
                         </div>
                     </div>
                                         

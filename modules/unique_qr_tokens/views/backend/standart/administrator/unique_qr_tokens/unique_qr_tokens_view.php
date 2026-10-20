@@ -92,7 +92,7 @@ jQuery(document).ready(domo);
                         <label for="content" class="col-sm-2 control-label">Status Verifikasi </label>
 
                         <div class="col-sm-8">
-                           <?= _ent($unique_qr_tokens->status_verifikasi); ?>
+                           <?= status_badge($unique_qr_tokens->status_verifikasi); ?>
                         </div>
                     </div>
                                          

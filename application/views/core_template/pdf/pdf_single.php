@@ -17,8 +17,14 @@
 
 				<?php foreach ($fields as $field){ 
 					$val = $data->{$field};
-					if (in_array($field, ['harga_barang', 'sub_total', 'ongkir', 'total_bayar', 'nilai_hadiah', 'min_omzet_tercapai'])) {
+									if (in_array($field, ['harga_barang', 'sub_total', 'ongkir', 'total_bayar', 'nilai_hadiah', 'min_omzet_tercapai'])) {
 						$val = idr($val);
+					}
+					if ($field === 'is_active') {
+						$val = $val ? 'Aktif' : 'Nonaktif';
+					}
+					if ($field === 'is_used_spin') {
+						$val = $val ? 'Sudah Digunakan' : 'Belum Digunakan';
 					}
 				?>
 					<h3><?= cclang($field); ?></h3>
