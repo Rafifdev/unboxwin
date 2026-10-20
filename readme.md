@@ -2,7 +2,7 @@ email : developer@gmail.com
 password : developer
 
 ###################
-CiCOOL
+spin_wheel
 ###################
 
 **Feature**

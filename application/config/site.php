@@ -9,5 +9,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Your site name,
 |
 */
-$config['site_name'] = 'Molindo Web Admin';
+$config['site_name'] = 'spin_wheel';
 $config['version'] = '3.0.0';
